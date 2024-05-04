@@ -1,0 +1,42 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data=pd.read_csv("HousingData.csv")
+data
+
+data.head()
+data.tail()
+data.describe()
+data.columns
+data.dtypes
+
+data.isnull().sum()
+for col in data.columns:
+    data[col].fillna(data[col].mean(),inplace=True)
+
+data.isnull().sum()
+data.describe()
+
+import seaborn as sns
+sns.heatmap(data.corr().abs(),annot=True)
+plt.figure(figsize=(100,100))
+plt.show()
+
+data.columns
+X=data.drop(["MEDV"],axis=1)
+Y=data["MEDV"]
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+X_train, X_test, Y_train, Y_test = train_test_split(x,y, test_size = 0.2, random_state = 2)
+print(x.shape, X_train.shape, X_test.shape )
+
+model=LinearRegression()
+model.fit(X_train, Y_train)
+
+tranining_data_prediction = model.predict(X_train)
+tranining_data_prediction
+
+model.score(X_train,tranining_data_prediction)*100
