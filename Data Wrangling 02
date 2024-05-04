@@ -1,0 +1,71 @@
+import matplotlib.pyplot as mplib
+
+#outlier detection 
+df = pd.read_csv('students_records.csv')
+df1=df.copy()
+
+# Using Boxplot
+df.boxplot()
+
+df.boxplot(column=['Sem5'])
+
+df['Sem5'].min()
+df['Sem5'].median()
+df['Sem5'].max()
+
+#choose range from box plot max val 
+print(np.where(df['Sem5']>80))
+df.iloc[0],df.iloc[1],df.iloc[18]
+
+df.drop([0,1,18],inplace=True)
+df.boxplot(column=['Sem5'])
+
+
+#data Transformation
+
+import pandas as pd
+import numpy as np
+
+# Example data
+data = {'X': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Display the original data
+print("Original data:")
+print(df)
+
+# Apply logarithmic transformation to variable X
+df['X_log'] = np.log(df['X'])
+
+# Display the transformed data
+print("\nTransformed data after applying logarithmic transformation:")
+print(df)
+
+#The logarithmic transformation is useful when dealing with data that has a non-linear relationship and we want to convert it into a linear one.
+
+
+import pandas as pd
+import numpy as np
+
+# Example data
+data = {'X': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Display the original data
+print("Original data:")
+print(df)
+
+# Apply square root transformation to variable X
+df['X_sqrt'] = np.sqrt(df['X'])
+
+# Display the transformed data
+print("\nTransformed data after applying square root transformation:")
+print(df)
+
+
+#The square root transformation is useful for decreasing skewness and making the distribution closer to normal, 
+#especially for variables with right-skewed distributions.
