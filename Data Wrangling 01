@@ -1,0 +1,22 @@
+import numpy as np
+import pandas as pd
+from sklearn import preprocessing 
+
+data=pd.read_csv(r"C:\Users\yashk\Downloads\Iris.csv")
+data
+
+data.shape
+data.index
+data.head()
+data.tail()
+data.columns
+data.dtypes
+data.isnull().sum()
+data.describe()
+data.iloc[:,1:3]
+data.select_dtypes("number")
+data.select_dtypes("object")
+
+label= preprocessing.LabelEncoder()
+data["Species"]=label.fit_transform(data["Species"])
+data
