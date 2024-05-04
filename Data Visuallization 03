@@ -1,0 +1,54 @@
+import seaborn as sns
+import numpy as np
+
+df = sns.load_dataset('iris')
+df.head()
+
+column = len(list(df))
+print("Total Features of Iris Dataset: ",column)
+
+data.select_dtypes(include='number')
+data.select_dtypes(include='object')
+
+# Display unique values of species feature
+np.unique(df["species"])
+
+df.describe()
+
+import matplotlib.pyplot as mpl
+
+fig,axes = mpl.subplots(2,2,figsize=(16,9))
+sns.histplot(df['sepal_length'],ax = axes[0,0])
+sns.histplot(df['sepal_width'],ax = axes[0,1])
+sns.histplot(df['petal_length'],ax = axes[1,0])
+sns.histplot(df['petal_width'],ax = axes[1,1])
+
+fig,axes = mpl.subplots(2,2,figsize=(16,9))
+sns.boxplot(df['sepal_length'],ax = axes[0,0])
+sns.boxplot(df['sepal_width'],ax = axes[0,1])
+sns.boxplot(df['petal_length'],ax = axes[1,0])
+sns.boxplot(df['petal_width'],ax = axes[1,1])
+
+# Outliers detect in Sepal_width Species
+old_df =sns.boxplot(df['sepal_width'])
+
+# Finding the IQR
+percentile25 = df['sepal_width'].quantile(0.25)
+percentile75 = df['sepal_width'].quantile(0.75)
+iqr= percentile75-percentile25
+
+# Finding upper and lower limit
+
+upper_limit = percentile75 + 1.5 * iqr
+lower_limit = percentile25 - 1.5 * iqr
+
+# Finding Outliers
+
+print(np.where(df['sepal_width'] > upper_limit))
+print(np.where(df['sepal_width'] < lower_limit))
+
+#Remove outlair by drop function
+df.drop([15,32,33,60],inplace=True)
+
+# After removing outliers.
+sns.boxplot(df['sepal_width'])
