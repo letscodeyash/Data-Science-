@@ -11,6 +11,10 @@ data.head()
 data.tail()
 data.columns
 data.dtypes
+
+data=data["Id"].astype("int32")
+data.dtypes
+
 data.isnull().sum()
 data.describe()
 data.iloc[:,1:3]
