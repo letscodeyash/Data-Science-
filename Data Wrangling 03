@@ -1,0 +1,27 @@
+import numpy as np
+import pandas as pd
+
+data=pd.read_csv(r"C:\Users\yashk\Downloads\employee_data.csv")
+data
+
+updated_data=data.iloc[:,:]
+updated_data
+
+updated_data.describe()
+
+updated_data.groupby("age")["salary"].mean()
+
+updated_data.groupby("groups")["salary"].mean()
+
+iris_data=pd.read_csv(r"C:\Users\yashk\Downloads\Iris.csv")
+iris_data
+
+iris_data["Species"].values
+
+Iris_setosa= iris_data[iris_data["Species"]== "Iris-setosa"]
+Iris_versicolor= iris_data[iris_data["Species"]== "Iris-versicolor"]
+Iris_virginica= iris_data[iris_data["Species"]== "Iris-virginica"]
+
+Iris_setosa.describe()
+Iris_versicolor.describe()
+Iris_virginica.describe()
