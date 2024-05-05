@@ -34,10 +34,10 @@ print("Confusion Matrix:")
 print(cm)
 
 # Extract TP, FP, TN, FN
-TP = cm[1][1]
-FP = cm[0][1]
-TN = cm[0][0]
-FN = cm[1][0]
+print('true negatives (TN):  ', cm[0,0])
+print('true positives (TP):  ', cm[1,1])
+print('false positives (FP): ', cm[0,1])
+print('false negative (FN):  ', cm[1,0])
 
 # Compute accuracy
 accuracy = accuracy_score(y_test, y_pred)
