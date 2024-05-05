@@ -1,0 +1,29 @@
+#Even Odd Checker 
+
+object EvenOddChecker {
+  def main(args: Array[String]): Unit = {
+    println("Enter a number:")
+    val number = scala.io.StdIn.readInt()
+
+    if (number % 2 == 0) {
+      println(s"$number is even.")
+    } else {
+      println(s"$number is odd.")
+    }
+  }
+}
+
+#Adddition of two Numbers
+
+object Addition {
+  def main(args: Array[String]): Unit = {
+    println("Enter the first number:")
+    val num1 = scala.io.StdIn.readDouble()
+
+    println("Enter the second number:")
+    val num2 = scala.io.StdIn.readDouble()
+
+    val sum = num1 + num2
+    println(s"The sum of $num1 and $num2 is: $sum")
+  }
+}
